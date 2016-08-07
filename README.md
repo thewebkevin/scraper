@@ -1,2 +1,0 @@
-# scraper
-Olympics Scraper Bot
