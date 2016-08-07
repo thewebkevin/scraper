@@ -35,7 +35,7 @@ function gather() {
                 winners[i].bronze = medals[i].charAt(5);
                 winners[i].total = medals[i].charAt(6);
             }
-            tweettext = "#Rio2016 Medals: \n";
+            tweettext = "#Rio2016 Olympic Medals: \n";
             for (var i = 0; i < winners.length; i++) {
                 tweettext = tweettext + (i + 1) + ". #" + winners[i].country + " " + winners[i].gold + "G " + winners[i].silver + "S " + winners[i].bronze + "B -" + winners[i].total + " Total \n"
             }
