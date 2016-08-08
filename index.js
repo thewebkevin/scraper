@@ -37,7 +37,7 @@ function gather() {
             }
             tweettext = "#Rio2016 Olympic Medals: \n";
             for (var i = 0; i < winners.length; i++) {
-                tweettext = tweettext + (i + 1) + ". #" + winners[i].country + " " + winners[i].gold + "G " + winners[i].silver + "S " + winners[i].bronze + "B -" + winners[i].total + " Total \n"
+                tweettext = tweettext + (i + 1) + ". #" + winners[i].country + " " + winners[i].gold + "G " + winners[i].silver + "S " + winners[i].bronze + "B " + winners[i].total + " Total \n"
             }
             console.log(tweettext);
 
