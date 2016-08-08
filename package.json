@@ -1,0 +1,30 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "This bot will scrape medal count data from ESPN.com and tweet it to your Twitter account.",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "twitter": "^1.2.5",
+    "request": "^2.65.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewebkevin/scraper.git"
+  },
+  "keywords": [
+    "twitter",
+    "olympics",
+    "rio2016"
+  ],
+  "author": "Kevin Lee Dupuy Jr.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thewebkevin/scraper/issues"
+  },
+  "homepage": "https://github.com/thewebkevin/scraper#readme"
+}
