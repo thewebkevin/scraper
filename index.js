@@ -13,6 +13,11 @@ var client = new Twitter({
 });
 
 var tweettext;
+var minutes = .5;
+var the_interval = minutes * 60 * 1000;
+var old_data = [];
+var launch = false;
+var medals;
 var url = "http://www.espn.com/olympics/summer/2016/medals/_/view/overview/sort/gold?";
 
 
@@ -26,14 +31,15 @@ function gather() {
             var second = new Object();
             var third = new Object();
             var winners = [first, second, third];
+            medals = [];
 
-            var medals = $('.medals').text().replace("Total Medals By CountryGroupGSBTotal", "").split(" ").splice(1, 3);
+            medals = $('.medals').text().replace("Total Medals By CountryGroupGSBTotal", "").split(" ").splice(1, 3);
             for (var i = 0; i < medals.length; i++) {
                 winners[i].country = medals[i].substr(0, 3);
                 winners[i].gold = medals[i].charAt(3);
                 winners[i].silver = medals[i].charAt(4);
                 winners[i].bronze = medals[i].charAt(5);
-                winners[i].total = medals[i].charAt(6);
+                winners[i].total = medals[i].substr(6, 7);
             }
             tweettext = "#Rio2016 Olympic Medals: \n";
             for (var i = 0; i < winners.length; i++) {
@@ -61,5 +67,22 @@ function tweet() {
     });
 }
 
-gather();
-setTimeout(tweet, 5000);
+function verify() {
+    var counter = 0;
+    for (i = 0; i < medals.length; i++) {
+        if (medals[i] != old_data[i]) {
+            counter = counter + 1;
+        }
+    }
+    if (counter > 0) {
+        tweet();
+        medals = old_data;
+    } else {
+        console.log("I will not tweet the same medal count.");
+    }
+}
+
+setInterval(function () {
+    gather();
+    setTimeout(verify, 10000);
+}, the_interval);
