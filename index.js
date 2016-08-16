@@ -36,9 +36,9 @@ function gather() {
             medals = $('.medals').text().replace("Total Medals By CountryGroupGSBTotal", "").split(" ").splice(1, 3);
             for (var i = 0; i < medals.length; i++) {
                 winners[i].country = medals[i].substr(0, 3);
-                winners[i].gold = medals[i].charAt(3);
-                winners[i].silver = medals[i].charAt(4);
-                winners[i].bronze = medals[i].charAt(5);
+                winners[i].gold = medals[i].substr(3, 4);
+                winners[i].silver = medals[i].substr(4, 5);
+                winners[i].bronze = medals[i].substr(5, 6);
                 winners[i].total = medals[i].substr(6, 7);
             }
             tweettext = "#Rio2016 Olympic Medals: \n";
